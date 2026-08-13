@@ -146,6 +146,21 @@ const classes = computed(() => ["tag", `tag-variant-${props.variant}`]);
       background-color: #059669;
       color: white;
     }
+
+    &-vue {
+      background-color: #42b883;
+      color: #113325;
+    }
+
+    &-laravel {
+      background-color: #ff2d20;
+      color: white;
+    }
+
+    &-moodle {
+      background-color: #f98012;
+      color: #3b1d00;
+    }
   }
 }
 </style>

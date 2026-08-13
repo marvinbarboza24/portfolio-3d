@@ -23,7 +23,10 @@ export type TagVariant =
   | "vr"
   | "web"
   | "pc"
-  | "mobile";
+  | "mobile"
+  | "vue"
+  | "laravel"
+  | "moodle";
 
 export const tagLabels = {
   three: "Three.js",
@@ -51,4 +54,7 @@ export const tagLabels = {
   web: "Web",
   pc: "PC",
   mobile: "Mobile",
+  vue: "Vue",
+  laravel: "Laravel",
+  moodle: "Moodle",
 } as const satisfies Record<TagVariant, string>;

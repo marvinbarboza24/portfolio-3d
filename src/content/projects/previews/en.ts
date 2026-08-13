@@ -37,6 +37,9 @@ import thumbnailPhysicraft from "../../../assets/thumbnails/physicraft.png";
 import thumbnailMarbles from "../../../assets/thumbnails/marbles-on-chain.png";
 import thumbnailIfrit from "../../../assets/thumbnails/ifrit.png";
 import thumbnailWeedoverse from "../../../assets/thumbnails/weedoverse.png";
+import thumbnailCmuPortal from "../../../assets/thumbnails/cmu-portal.png";
+import thumbnailCmuLms from "../../../assets/thumbnails/cmu-lms.png";
+import thumbnailDilimanLms from "../../../assets/thumbnails/diliman-lms.png";
 
 import type { ProjectPreview } from "../../types";
 
@@ -274,5 +277,23 @@ export default [
     slug: "weedoverse",
     thumbnail: thumbnailWeedoverse,
     description: "3D harvest world",
+  },
+  {
+    title: "CMU Portal",
+    slug: "cmu-portal",
+    thumbnail: thumbnailCmuPortal,
+    description: "University student portal",
+  },
+  {
+    title: "CMU Digital Academics",
+    slug: "cmu-lms",
+    thumbnail: thumbnailCmuLms,
+    description: "University LMS",
+  },
+  {
+    title: "Diliman College LINK",
+    slug: "diliman-lms",
+    thumbnail: thumbnailDilimanLms,
+    description: "College Moodle LMS",
   },
 ] as const satisfies ProjectPreview[];
