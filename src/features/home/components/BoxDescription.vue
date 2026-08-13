@@ -156,14 +156,7 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
   }
 
   &-details {
-    padding: var(--space-sm) var(--space-md);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    @include mixins.landscape {
-      display: none;
-    }
+    display: none;
 
     &-name {
       font-size: var(--font-size-title-xs);

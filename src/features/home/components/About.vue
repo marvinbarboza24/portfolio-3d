@@ -100,6 +100,12 @@ watchEffect((onInvalidate) => {
     }
   }
 
+  &-details {
+    width: 100%;
+    height: 0;
+    top: 50%;
+  }
+
   &-progress-count {
     will-change: transform, opacity;
     position: absolute;

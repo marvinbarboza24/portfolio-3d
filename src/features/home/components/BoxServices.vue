@@ -114,16 +114,16 @@ const SERVICES_EN = [
   { name: "Node.js & APIs" },
 ] as const satisfies { name: string }[];
 
-const SERVICES_DE = [
-  { name: "Unity & Game-Systeme" },
+const SERVICES_TL = [
+  { name: "Unity & Game Systems" },
   { name: "React & TypeScript" },
-  { name: "LMS-Architektur" },
+  { name: "LMS Architecture" },
   { name: "Solidity & Web3" },
   { name: "Node.js & APIs" },
 ] as const satisfies { name: string }[];
 
 const services = computed(() => {
-  return locale.value === "en" ? SERVICES_EN : SERVICES_DE;
+  return locale.value === "tl" ? SERVICES_TL : SERVICES_EN;
 });
 </script>
 

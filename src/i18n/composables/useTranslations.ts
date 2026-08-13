@@ -9,7 +9,7 @@ import type { Locale } from "../types";
 export const useTranslations = () => {
   onMounted(() => {
     locale.value = window.localStorage.getItem("portfolio-locale") as Locale;
-    if (!locale.value) {
+    if (!locale.value || !(locale.value in LOCALES)) {
       const preferredLocale = navigator.language.split("-")[0] as Locale;
 
       if (preferredLocale in LOCALES) {

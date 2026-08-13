@@ -29,6 +29,7 @@ export const projectIds = [
   "cmu-portal",
   "cmu-lms",
   "diliman-lms",
+  "project-post",
   "going-up",
   "meca-chammelion",
   "themepark-games",
@@ -74,6 +75,7 @@ export const projectCategories: Record<(typeof projectIds)[number], ProjectCateg
   "cmu-portal": "lms",
   "cmu-lms": "lms",
   "diliman-lms": "lms",
+  "project-post": "other",
   "going-up": "other",
   "meca-chammelion": "other",
   "themepark-games": "other",
@@ -124,6 +126,6 @@ function simplifyModules(glob: Record<string, any>) {
 }
 
 export const projectModules = {
-  de: simplifyModules(import.meta.glob("./de/*.ts", { eager: true })),
+  tl: simplifyModules(import.meta.glob("./en/*.ts", { eager: true })),
   en: simplifyModules(import.meta.glob("./en/*.ts", { eager: true })),
 } as const satisfies Record<Locale, Record<string, any>>;

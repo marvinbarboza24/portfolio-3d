@@ -31,10 +31,11 @@ import AppearingText from "../../../components/AppearingText.vue";
   &-content {
     align-items: center;
     justify-content: center;
-    height: 46%;
+    height: 100%;
+    padding-bottom: 38%;
 
     @include mixins.landscape {
-      height: 100%;
+      padding-bottom: 22%;
 
       @include mixins.mq("md") {
         padding-bottom: 30%;
@@ -47,23 +48,16 @@ import AppearingText from "../../../components/AppearingText.vue";
 
     &-inner {
       transform-origin: center center;
-      grid-column: 1 / 13;
+      grid-column: 2 / 13;
       gap: var(--space-xxl);
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       width: fit-content;
       position: relative;
-      left: 50%;
-      transform: translateX(-50%);
-
-      @include mixins.landscape {
-        left: 0;
-        transform: translateX(0);
-        grid-column: 2 / 13;
-        width: fit-content;
-      }
+      left: 0;
+      transform: translateX(0);
     }
 
     &-copys {

@@ -99,7 +99,7 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
 </script>
 
 <template>
-  <ProjectedElement :point="point">
+  <ProjectedElement :point="point" pinned>
     <div ref="wrapperRef" class="box-details">
       <div class="box-details-content">
         <div class="box-details-title">
@@ -132,16 +132,17 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
 .box-details {
   --line-length: min(48px, calc(var(--svw) * 5));
 
-  display: none;
+  display: block;
+  position: absolute;
+  padding-bottom: 3px;
+  padding-right: var(--line-length);
+  width: 200px;
+  max-width: calc(var(--svw) * 52);
+  transform: translate(-100%, -50%);
 
   @include mixins.landscape {
-    display: block;
-    position: absolute;
-    padding-bottom: 3px;
-    padding-right: var(--line-length);
     width: 240px;
     max-width: calc(var(--svw) * 30);
-    transform: translate(-100%, -50%);
   }
 
   @include mixins.landscape-large {
@@ -150,11 +151,7 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
 
   &::after,
   &::before {
-    display: none;
-
-    @include mixins.landscape {
-      display: block;
-    }
+    display: block;
   }
 
   &::after {
@@ -186,15 +183,9 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
     background: linear-gradient(to bottom, var(--color-hologram-top) 0%, var(--color-hologram-bottom) 100%);
     gap: var(--space-xxs);
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: var(--space-sm) var(--space-md);
-
-    @include mixins.landscape {
-      flex-direction: column;
-      justify-content: flex-start;
-      padding: var(--space-xs) var(--space-sm);
-    }
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: var(--space-xs) var(--space-sm);
 
     @include mixins.mq("md") {
       padding: var(--space-sm) var(--space-md);

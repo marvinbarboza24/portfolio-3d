@@ -243,13 +243,15 @@ const setupSectionsAnimation = ({
         tlServices?.play();
       }, SERVICES_DELAY);
     } else {
-      // Mobile: only description and services (details hidden on portrait)
+      const DETAILS_DELAY = 0;
       const DESCRIPTION_DELAY = 0;
       const SERVICES_DELAY = 0.6;
 
-      // Details animation disabled - BoxDetails is hidden on portrait
+      tl.fromTo(contentDetails, { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "power1.out" }, DETAILS_DELAY);
+      tl.add(() => {
+        tlDetails?.play();
+      }, DETAILS_DELAY);
 
-      // Description animation
       tl.fromTo(
         contentDescription,
         { opacity: 0, y: "10vh" },
