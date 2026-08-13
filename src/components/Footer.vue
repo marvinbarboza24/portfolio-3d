@@ -8,6 +8,7 @@ import { t } from "../i18n/utils/translate";
 import ButtonRound from "./ButtonRound.vue";
 import { lenis } from "../composables/useScroll";
 import ArrowRightLong from "./icons/ArrowRightLong.vue";
+import { useVisitCount } from "../composables/useVisitCount";
 
 interface Props {
   withSocial?: boolean;
@@ -19,6 +20,7 @@ const handleBackToTop = () => {
 };
 
 const { withSocial = true } = defineProps<Props>();
+const visits = useVisitCount();
 </script>
 
 <template>
@@ -69,6 +71,7 @@ const { withSocial = true } = defineProps<Props>();
       </div>
       <div class="footer-credits">
         <p>© {{ new Date().getFullYear() }} Marvin</p>
+        <p v-if="visits !== null" class="footer-visits">{{ t("visits", { count: visits.toLocaleString() }) }}</p>
       </div>
     </div>
   </footer>
@@ -154,6 +157,11 @@ const { withSocial = true } = defineProps<Props>();
     width: 100%;
     font-size: var(--font-size-sm);
     text-align: center;
+  }
+
+  &-visits {
+    opacity: 0.7;
+    font-size: var(--font-size-xs);
   }
 
   &-notch {

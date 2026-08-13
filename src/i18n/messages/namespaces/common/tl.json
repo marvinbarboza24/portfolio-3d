@@ -29,5 +29,6 @@
   "source-code": "Source Code",
   "switch-to-project": "Lumipat sa proyekto {project}",
   "version": "Bersyon",
-  "view-project": "Tingnan ang proyekto"
+  "view-project": "Tingnan ang proyekto",
+  "visits": "{count} na bisita"
 }
