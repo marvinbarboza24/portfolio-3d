@@ -3,11 +3,13 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
 import { Vector3 } from "three";
 import { camera } from "../three/core/camera";
 import { sizes } from "../utils/sizes";
+import { threeSizes } from "../three/utils/sizes";
 import gsap from "gsap";
 import { sceneWeightsInOut } from "../animations/scenes";
 
 const props = defineProps<{
   point: Vector3;
+  portraitPoint?: Vector3;
   pinned?: boolean;
 }>();
 
@@ -21,11 +23,24 @@ const updatePosition = () => {
   if (sceneWeightsInOut.about.out === 1) return;
 
   const isLandscape = sizes.isLandscape;
-  const { point, pinned } = props;
+  const { point, portraitPoint, pinned } = props;
   const shouldProject = pinned || isLandscape;
+  const activePoint = !isLandscape && portraitPoint ? portraitPoint : point;
 
-  const screenPos = shouldProject ? camera.project(point) : { x: 0, y: 0 };
-  const transform = shouldProject ? `translate(${screenPos.x}px, ${screenPos.y}px)` : `translate(0px, 0px)`;
+  const screenPos = shouldProject ? camera.project(activePoint) : { x: 0, y: 0 };
+  let x = screenPos.x;
+  let y = screenPos.y;
+
+  // Keep the portrait nameplate on-screen (header + overflow:hidden on the sticky intro).
+  if (shouldProject && !isLandscape && threeSizes.width > 0 && threeSizes.height > 0) {
+    const halfW = threeSizes.width * 0.5;
+    const halfH = threeSizes.height * 0.5;
+    x = Math.min(halfW - 88, Math.max(-halfW + 88, x));
+    // The plate sits above this point, so keep enough room under the header.
+    y = Math.min(halfH * 0.15, Math.max(-halfH + 156, y));
+  }
+
+  const transform = shouldProject ? `translate(${x}px, ${y}px)` : `translate(0px, 0px)`;
 
   if (transform !== lastTransform) {
     wrapperRef.value.style.transform = transform;

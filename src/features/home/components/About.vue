@@ -104,6 +104,9 @@ watchEffect((onInvalidate) => {
     width: 100%;
     height: 0;
     top: 50%;
+    overflow: visible;
+    z-index: 2;
+    pointer-events: none;
   }
 
   &-progress-count {

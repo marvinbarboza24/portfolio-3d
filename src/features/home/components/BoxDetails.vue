@@ -9,6 +9,7 @@ import PinIcon from "../../../components/icons/Pin.vue";
 import ProjectedElement from "../../../components/ProjectedElement.vue";
 
 const point = new Vector3(-0.76, 3.6, 6.75);
+const portraitPoint = new Vector3(0, 3.62, 6.75);
 
 const wrapperRef = ref<HTMLDivElement | null>(null);
 const timelines = ref<{ timeline: gsap.core.Timeline; delay: number }[]>([]);
@@ -54,8 +55,8 @@ watchEffect((onInvalidate) => {
           0,
         );
       } else {
-        // On portrait, set clipPath immediately without animation
-        gsap.set(wrapperEl, { clipPath: "inset(0% 0% 0% 0%)" });
+        // Portrait uses a stem that sits outside the box; don't clip it.
+        gsap.set(wrapperEl, { clipPath: "none" });
       }
 
       // Only add timeline animations on landscape
@@ -99,7 +100,7 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
 </script>
 
 <template>
-  <ProjectedElement :point="point" pinned>
+  <ProjectedElement :point="point" :portrait-point="portraitPoint" pinned>
     <div ref="wrapperRef" class="box-details">
       <div class="box-details-content">
         <div class="box-details-title">
@@ -130,19 +131,22 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
 
 <style scoped lang="scss">
 .box-details {
-  --line-length: min(48px, calc(var(--svw) * 5));
+  --line-length: 18px;
 
   display: block;
   position: absolute;
-  padding-bottom: 3px;
-  padding-right: var(--line-length);
-  width: 200px;
-  max-width: calc(var(--svw) * 52);
-  transform: translate(-100%, -50%);
+  padding-bottom: var(--line-length);
+  width: min(168px, calc(100vw - 40px));
+  transform: translate(-50%, calc(-100% + 4px));
+  overflow: visible;
 
   @include mixins.landscape {
+    --line-length: min(48px, calc(var(--svw) * 5));
+    padding-bottom: 3px;
+    padding-right: var(--line-length);
     width: 240px;
     max-width: calc(var(--svw) * 30);
+    transform: translate(-100%, -50%);
   }
 
   @include mixins.landscape-large {
@@ -157,24 +161,46 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
   &::after {
     content: "";
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0;
-    width: 11px;
-    height: 11px;
+    bottom: 0;
+    left: 50%;
+    width: 9px;
+    height: 9px;
     background-color: var(--color-cyan-400);
     border-radius: 50%;
+    transform: translate(-50%, 50%);
+
+    @include mixins.landscape {
+      top: 50%;
+      bottom: auto;
+      left: auto;
+      right: 0;
+      width: 11px;
+      height: 11px;
+      transform: translateY(-50%);
+    }
   }
 
   &::before {
     content: "";
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0;
-    width: var(--line-length);
-    height: 0;
-    border-bottom: var(--stroke-sm) solid var(--color-cyan-400);
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: var(--line-length);
+    transform: translateX(-50%);
+    border-left: var(--stroke-sm) solid var(--color-cyan-400);
+
+    @include mixins.landscape {
+      top: 50%;
+      bottom: auto;
+      left: auto;
+      right: 0;
+      width: var(--line-length);
+      height: 0;
+      transform: translateY(-50%);
+      border-left: none;
+      border-bottom: var(--stroke-sm) solid var(--color-cyan-400);
+    }
   }
 
   &-content {
@@ -185,7 +211,11 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: var(--space-xs) var(--space-sm);
+    padding: 8px 12px;
+
+    @include mixins.landscape {
+      padding: var(--space-xs) var(--space-sm);
+    }
 
     @include mixins.mq("md") {
       padding: var(--space-sm) var(--space-md);

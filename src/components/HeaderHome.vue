@@ -24,15 +24,13 @@ const ariaLabels = {
 const isMounted = ref(false);
 
 const barStyle = ref({ transform: "" });
-const ITEM_WIDTH = 128;
 
 const { isDarkTheme, hasScrolledIntoView } = useHeaderTheme();
 
 const updateBarPosition = () => {
   const index = sections.indexOf(activeLink.value as ActiveLink);
-  const left = index * ITEM_WIDTH;
   barStyle.value = {
-    transform: `translateX(${left}px)`,
+    transform: `translateX(${index * 100}%)`,
   };
 };
 
@@ -96,28 +94,44 @@ onMounted(() => {
 .header-home {
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: var(--space-outer);
   z-index: var(--z-index-header-home);
   height: var(--height-header);
   align-items: center;
-  justify-content: center;
-  display: none;
+  justify-content: flex-start;
+  display: flex;
+  max-width: calc(100vw - 8.75rem);
+  pointer-events: auto;
   opacity: 0;
   transition:
     opacity 0.3s ease-in-out,
     transform var(--transition-route-duration) var(--transition-route-ease);
 
   &-isProjectPage {
-    transform: translateX(-50%) translateY(-100%);
+    transform: translateY(-100%);
+
+    @include mixins.mq("lg") {
+      transform: translateX(-50%) translateY(-100%);
+    }
   }
 
   &-mounted {
     opacity: 1;
   }
 
+  @include mixins.mq("sm") {
+    max-width: calc(100vw - 10.5rem);
+  }
+
+  @include mixins.mq("md") {
+    max-width: calc(100vw - 13rem);
+  }
+
   @include mixins.mq("lg") {
-    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: center;
+    max-width: none;
   }
 
   &-links {
@@ -127,6 +141,8 @@ onMounted(() => {
     background-color: var(--color-beige-500);
     border-radius: 100px;
     color: var(--color-text-400);
+    min-width: 0;
+    width: 100%;
     transition:
       color 0.1s ease-in-out,
       background-color 0.1s ease-in-out;
@@ -142,7 +158,7 @@ onMounted(() => {
     top: 3px;
     left: 3px;
     height: calc(100% - 6px);
-    width: 128px;
+    width: calc((100% - 6px) / 3);
     background: var(--color-orange-400);
     border-radius: 100px;
     transition:
@@ -164,15 +180,33 @@ onMounted(() => {
   &-link {
     position: relative;
     z-index: 2;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
     font-weight: 700;
     border: none;
     background: none;
     transition: color 0.1s ease-in-out;
-    font-size: var(--font-size-md);
-    width: 128px;
+    font-size: 10px;
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    padding: 6px 4px;
     white-space: nowrap;
     text-transform: uppercase;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include mixins.mq("sm") {
+      font-size: var(--font-size-xs);
+      letter-spacing: 0.02em;
+      padding: var(--space-xxs) 6px;
+    }
+
+    @include mixins.mq("lg") {
+      font-size: var(--font-size-md);
+      width: 128px;
+      flex: 0 0 128px;
+      padding: var(--space-xxs) 0;
+    }
 
     &-active {
       color: var(--color-white-400);

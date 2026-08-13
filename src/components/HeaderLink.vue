@@ -17,13 +17,14 @@ const props = defineProps<{
 
 <style scoped lang="scss">
 .header-link {
+  position: relative;
   letter-spacing: 0.02em;
   font-weight: 700;
   border: none;
   background: none;
   transition: color 0.1s ease-in-out;
-  font-size: var(--font-size-md);
-  width: 128px;
+  font-size: inherit;
+  width: 100%;
   white-space: nowrap;
   text-transform: uppercase;
   z-index: 2;

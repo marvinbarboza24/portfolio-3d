@@ -6,7 +6,7 @@ import { t } from "../i18n/utils/translate";
 import { useHeaderTheme } from "../composables/useHeaderTheme";
 import { lenis } from "../composables/useScroll";
 import { projectId } from "../composables/useRouteObserver";
-import { social } from "../content/social";
+import { GMAIL_COMPOSE_URL } from "../content/social";
 import ButtonRound from "./ButtonRound.vue";
 import ArrowRight from "./icons/ArrowRight.vue";
 import SoundsToggle from "./SoundsToggle.vue";
@@ -100,7 +100,9 @@ const getInTouchClassNames = computed(() => {
         renderAs="a"
         variant="accent"
         :aria-label="t('get-in-touch')"
-        :href="social.find((item) => item.name === 'mail')?.url ?? ''"
+        :href="GMAIL_COMPOSE_URL"
+        target="_blank"
+        rel="noopener noreferrer"
         external
         :class="getInTouchClassNames"
         data-cursor="circle-white"
@@ -159,14 +161,6 @@ const getInTouchClassNames = computed(() => {
     transform: translateY(-50%);
   }
 
-  &-get-in-touch {
-    width: fit-content;
-
-    &-isProjectPage {
-      opacity: 1 !important;
-    }
-  }
-
   &-right {
     position: absolute;
     right: var(--space-outer);
@@ -176,6 +170,32 @@ const getInTouchClassNames = computed(() => {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
+
+    :deep(.button.header-get-in-touch) {
+      width: fit-content;
+      display: flex;
+      height: 34px;
+      padding: 0 12px;
+      font-size: 10px;
+
+      @include mixins.mq("sm") {
+        height: 38px;
+        padding: 0 16px;
+        font-size: var(--font-size-xs);
+      }
+
+      @include mixins.mq("md") {
+        height: 44px;
+        padding: 0 26px;
+        font-size: var(--font-size-md);
+      }
+    }
+  }
+
+  &-get-in-touch {
+    &-isProjectPage {
+      opacity: 1 !important;
+    }
   }
 
   &-music-toggle {
@@ -187,21 +207,17 @@ const getInTouchClassNames = computed(() => {
     --icon-color: var(--color-white-400);
   }
 
-  &-get-in-touch {
-    display: none;
-
-    @include mixins.mq("md") {
-      display: flex;
-    }
-  }
-
   &-logo {
     cursor: pointer;
-    display: flex;
+    display: none;
     gap: var(--space-xs);
     transition: color 0.2s ease-in-out;
     opacity: var(--scrolled);
     pointer-events: none;
+
+    @include mixins.mq("lg") {
+      display: flex;
+    }
 
     &-clickable {
       pointer-events: all;
