@@ -2,7 +2,7 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "marvin-portfolio-3d",
   "pages_build_output_dir": "./dist",
-  "compatibility_date": "2026-08-14",
+  "compatibility_date": "2026-08-13",
   "kv_namespaces": [
     {
       "binding": "VISITS",
