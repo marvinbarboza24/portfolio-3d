@@ -70,7 +70,6 @@ const visits = useVisitCount();
         </div>
       </div>
       <div class="footer-credits">
-        <p>© {{ new Date().getFullYear() }} Marvin</p>
         <p v-if="visits !== null" class="footer-visits">{{ t("visits", { count: visits.toLocaleString() }) }}</p>
       </div>
     </div>

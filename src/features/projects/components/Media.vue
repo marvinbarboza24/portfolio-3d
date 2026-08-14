@@ -4,12 +4,12 @@ import gsap from "gsap";
 import Notch from "../../../components/Notch.vue";
 
 const wrapperRef = ref<HTMLDivElement | null>(null);
-const mediaRef = ref<HTMLVideoElement | HTMLImageElement | null>(null);
+const mediaRef = ref<HTMLVideoElement | HTMLImageElement | HTMLIFrameElement | null>(null);
 const mediaContentRef = ref<HTMLDivElement | null>(null);
 const isMounted = ref(false);
 
 export interface Props {
-  type: "image" | "video";
+  type: "image" | "video" | "youtube";
   src: string;
   alt?: string;
   caption?: string;
@@ -62,6 +62,16 @@ onMounted(async () => {
         loading="lazy"
         fetchpriority="high"
         class="project-media-image"
+        ref="mediaRef"
+      />
+      <iframe
+        v-else-if="props.type === 'youtube'"
+        :src="props.src"
+        :title="props.alt || props.caption || 'Project video'"
+        class="project-media-video"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
         ref="mediaRef"
       />
       <video
@@ -164,6 +174,7 @@ onMounted(async () => {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border: 0;
   }
 
   &-content {

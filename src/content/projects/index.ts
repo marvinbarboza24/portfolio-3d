@@ -97,7 +97,7 @@ export const projectCategories: Record<(typeof projectIds)[number], ProjectCateg
 
 export const platformTags = ["web", "pc", "mobile"] as const satisfies TagVariant[];
 
-export const categoryOrder = ["ar", "vr", "lms", "other"] as const satisfies ProjectCategory[];
+export const categoryOrder = ["vr", "lms", "other", "ar"] as const satisfies ProjectCategory[];
 
 export function getDisplayTags(slug: string, tags: TagVariant[]): TagVariant[] {
   const category = projectCategories[slug as keyof typeof projectCategories];
