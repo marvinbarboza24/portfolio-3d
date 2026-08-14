@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import Social from "./Social.vue";
-import Link from "./Link.vue";
-import Clickable from "./Clickable.vue";
 import LangSwitch from "./LangSwitch.vue";
 import NotchSection from "./NotchSection.vue";
 import { t } from "../i18n/utils/translate";
@@ -42,30 +40,6 @@ const visits = useVisitCount();
       <div class="footer-top">
         <Social v-if="withSocial" />
         <div class="footer-top-links">
-          <div class="footer-top-links-legal">
-            <Clickable renderAs="div">
-              <Link
-                :href="'/privacy'"
-                class="footer-link"
-                :external="true"
-                data-cursor="circle-white"
-                data-sound="click"
-                data-hoversound="hover"
-                >{{ t("privacy") }}</Link
-              >
-            </Clickable>
-            <Clickable renderAs="div">
-              <Link
-                :href="'/legal'"
-                class="footer-link children-unclickable"
-                :external="true"
-                data-cursor="circle-white"
-                data-sound="click"
-                data-hoversound="hover"
-                >{{ t("legal") }}</Link
-              >
-            </Clickable>
-          </div>
           <LangSwitch />
         </div>
       </div>
@@ -129,12 +103,6 @@ const visits = useVisitCount();
       align-items: center;
       gap: var(--space-md);
 
-      &-legal {
-        display: flex;
-        flex-direction: row;
-        gap: var(--space-md);
-      }
-
       @include mixins.mq("md") {
         gap: var(--space-lg);
         flex-direction: row;
@@ -142,10 +110,6 @@ const visits = useVisitCount();
         margin-left: auto;
       }
     }
-  }
-
-  &-link {
-    font-weight: 700;
   }
 
   &-credits {

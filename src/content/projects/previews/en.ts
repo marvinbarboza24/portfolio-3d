@@ -41,6 +41,7 @@ import thumbnailCmuPortal from "../../../assets/thumbnails/cmu-portal.png";
 import thumbnailCmuLms from "../../../assets/thumbnails/cmu-lms.png";
 import thumbnailDilimanLms from "../../../assets/thumbnails/diliman-lms.png";
 import thumbnailProjectPost from "../../../assets/thumbnails/project-post.png";
+import thumbnailLastLightKingdom from "../../../assets/thumbnails/last-light-kingdom.png";
 
 import type { ProjectPreview } from "../../types";
 
@@ -302,5 +303,11 @@ export default [
     slug: "project-post",
     thumbnail: thumbnailProjectPost,
     description: "Gmail-inspired email platform",
+  },
+  {
+    title: "Last Light Kingdom",
+    slug: "last-light-kingdom",
+    thumbnail: thumbnailLastLightKingdom,
+    description: "Day-night kingdom survival",
   },
 ] as const satisfies ProjectPreview[];
