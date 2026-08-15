@@ -44,6 +44,7 @@ import thumbnailProjectPost from "../../../assets/thumbnails/project-post.png";
 import thumbnailLastLightKingdom from "../../../assets/thumbnails/last-light-kingdom.png";
 import thumbnailTimplaCafe from "../../../assets/thumbnails/timpla-cafe.png";
 import thumbnailSaloRsvp from "../../../assets/thumbnails/salo-rsvp.png";
+import thumbnailSakay from "../../../assets/thumbnails/sakay.png";
 
 import type { ProjectPreview } from "../../types";
 
@@ -323,5 +324,11 @@ export default [
     slug: "salo-rsvp",
     thumbnail: thumbnailSaloRsvp,
     description: "Filipino kasal invitation",
+  },
+  {
+    title: "Sakay",
+    slug: "sakay",
+    thumbnail: thumbnailSakay,
+    description: "Jeepney fares to campuses",
   },
 ] as const satisfies ProjectPreview[];
