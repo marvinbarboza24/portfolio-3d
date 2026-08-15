@@ -45,6 +45,7 @@ import thumbnailLastLightKingdom from "../../../assets/thumbnails/last-light-kin
 import thumbnailTimplaCafe from "../../../assets/thumbnails/timpla-cafe.png";
 import thumbnailSaloRsvp from "../../../assets/thumbnails/salo-rsvp.png";
 import thumbnailSakay from "../../../assets/thumbnails/sakay.png";
+import thumbnailGupit from "../../../assets/thumbnails/gupit.png";
 
 import type { ProjectPreview } from "../../types";
 
@@ -330,5 +331,11 @@ export default [
     slug: "sakay",
     thumbnail: thumbnailSakay,
     description: "Bayad sa jeep papuntang campus",
+  },
+  {
+    title: "Gupit",
+    slug: "gupit",
+    thumbnail: thumbnailGupit,
+    description: "Walk-in queue ng barberya",
   },
 ] as const satisfies ProjectPreview[];
