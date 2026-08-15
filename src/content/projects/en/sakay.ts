@@ -14,9 +14,9 @@ export default {
   description:
     "A jeepney fare guide for Metro Manila campuses — pick where you board and which university you’re going to, then see the bayad, transfers, and landmarks along the way.<br/><br/>Vue 3 + Vite + GSAP. 19 schools across Quezon City, the University Belt, Taft, Ermita, Intramuros, and Sta. Mesa. Student and senior discounts, walk-when-close, and a note when MRT is faster. Live on Cloudflare Pages.",
   components: [
-    { type: "media", props: { type: "image", src: img0, alt: "Filipino jeepney on a Quezon City street", caption: "Jeepney" } },
-    { type: "media", props: { type: "image", src: img1, alt: "UP Diliman academic oval", caption: "UP Diliman" } },
-    { type: "media", props: { type: "image", src: img2, alt: "UST España Boulevard", caption: "UST" } },
-    { type: "media", props: { type: "image", src: img3, alt: "Taft Avenue near DLSU", caption: "Taft" } },
+    { type: "media", props: { type: "image", src: img0, alt: "Sakay hero with jeepney fare tagline and Para button", caption: "Hero" } },
+    { type: "media", props: { type: "image", src: img1, alt: "Sakay fare board with campus picker and student discount", caption: "Bayad" } },
+    { type: "media", props: { type: "image", src: img2, alt: "Sakay jeepney stop list from Cubao to España", caption: "Route" } },
+    { type: "media", props: { type: "image", src: img3, alt: "Sakay transfer legs from DLSU toward UST", caption: "Transfer" } },
   ],
 } as const satisfies ProjectContent;

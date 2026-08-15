@@ -14,9 +14,9 @@ export default {
   description:
     "A digital QR menu for a Filipino café on Maginhawa Street — kape, silog, merienda, and panghimagas, with photos, cart checkout, and Mesa, a café assistant you can ask for recos or to add items to your order.<br/><br/>Vue 3 + Vite. Table-side ordering (dine-in or pickup), GCash or cash, and a grounded menu assistant. Live on Cloudflare Pages.",
   components: [
-    { type: "media", props: { type: "image", src: img0, alt: "Timplá Café interior hero", caption: "Café" } },
-    { type: "media", props: { type: "image", src: img1, alt: "Tapsilog on the digital menu", caption: "Almusal" } },
-    { type: "media", props: { type: "image", src: img2, alt: "Halo-halo from the dessert menu", caption: "Panghimagas" } },
-    { type: "media", props: { type: "image", src: img3, alt: "Barako brew on the coffee menu", caption: "Kape" } },
+    { type: "media", props: { type: "image", src: img0, alt: "Timplá Café digital menu hero with Ask Mesa, Cart, and QR dock", caption: "Hero" } },
+    { type: "media", props: { type: "image", src: img1, alt: "Timplá merienda menu cards with add to order", caption: "Menu" } },
+    { type: "media", props: { type: "image", src: img2, alt: "Timplá cart drawer with Barako Brew checkout", caption: "Cart" } },
+    { type: "media", props: { type: "image", src: img3, alt: "Mesa café assistant chat on Timplá", caption: "Mesa" } },
   ],
 } as const satisfies ProjectContent;

@@ -14,9 +14,9 @@ export default {
   description:
     "A Filipino kasal invitation for Marvin and Lea — paper invite over a Tagaytay garden, countdown, schedule with directions, entourage, where to stay, meal picks, wishing well, and an RSVP that takes plus-ones, pets, and song requests.<br/><br/>Vue 3 + Vite + GSAP. Couple PIN unlocks the guest list, meal tally, and CSV export. Pets are allowed. Live on Cloudflare Pages.",
   components: [
-    { type: "media", props: { type: "image", src: img0, alt: "Tagaytay garden ceremony at golden hour", caption: "Garden" } },
-    { type: "media", props: { type: "image", src: img1, alt: "Paper invitation still", caption: "Invite" } },
-    { type: "media", props: { type: "image", src: img2, alt: "Church aisle for the misa", caption: "Misa" } },
-    { type: "media", props: { type: "image", src: img3, alt: "Garden reception table", caption: "Handaan" } },
+    { type: "media", props: { type: "image", src: img0, alt: "Salo invitation card for Marvin and Lea with RSVP and WhatsApp", caption: "Invite" } },
+    { type: "media", props: { type: "image", src: img1, alt: "Salo countdown and story section", caption: "Countdown" } },
+    { type: "media", props: { type: "image", src: img2, alt: "Salo wedding day timeline with directions", caption: "The day" } },
+    { type: "media", props: { type: "image", src: img3, alt: "Salo RSVP form with plate, plus one, and pet options", caption: "RSVP" } },
   ],
 } as const satisfies ProjectContent;
