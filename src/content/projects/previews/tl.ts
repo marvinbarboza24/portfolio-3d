@@ -42,6 +42,7 @@ import thumbnailCmuLms from "../../../assets/thumbnails/cmu-lms.png";
 import thumbnailDilimanLms from "../../../assets/thumbnails/diliman-lms.png";
 import thumbnailProjectPost from "../../../assets/thumbnails/project-post.png";
 import thumbnailLastLightKingdom from "../../../assets/thumbnails/last-light-kingdom.png";
+import thumbnailTimplaCafe from "../../../assets/thumbnails/timpla-cafe.png";
 
 import type { ProjectPreview } from "../../types";
 
@@ -309,5 +310,11 @@ export default [
     slug: "last-light-kingdom",
     thumbnail: thumbnailLastLightKingdom,
     description: "Survival ng kaharian araw at gabi",
+  },
+  {
+    title: "Timplá Café",
+    slug: "timpla-cafe",
+    thumbnail: thumbnailTimplaCafe,
+    description: "QR menu ng Filipino café",
   },
 ] as const satisfies ProjectPreview[];
