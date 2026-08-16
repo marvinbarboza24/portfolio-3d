@@ -48,6 +48,7 @@ import thumbnailSakay from "../../../assets/thumbnails/sakay.png";
 import thumbnailGupit from "../../../assets/thumbnails/gupit.png";
 import thumbnailVideoke from "../../../assets/thumbnails/videoke.png";
 import thumbnailLaot from "../../../assets/thumbnails/laot.png";
+import thumbnailTimbangan from "../../../assets/thumbnails/timbangan.png";
 
 import type { ProjectPreview } from "../../types";
 
@@ -351,5 +352,11 @@ export default [
     slug: "laot",
     thumbnail: thumbnailLaot,
     description: "Island hopping sa El Nido",
+  },
+  {
+    title: "Timbangan",
+    slug: "timbangan",
+    thumbnail: thumbnailTimbangan,
+    description: "Presyo sa palengke ng Cubao",
   },
 ] as const satisfies ProjectPreview[];
