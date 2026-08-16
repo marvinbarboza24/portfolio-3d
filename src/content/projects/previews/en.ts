@@ -49,6 +49,7 @@ import thumbnailGupit from "../../../assets/thumbnails/gupit.png";
 import thumbnailVideoke from "../../../assets/thumbnails/videoke.png";
 import thumbnailLaot from "../../../assets/thumbnails/laot.png";
 import thumbnailTimbangan from "../../../assets/thumbnails/timbangan.png";
+import thumbnailLabada from "../../../assets/thumbnails/labada.png";
 
 import type { ProjectPreview } from "../../types";
 
@@ -358,5 +359,11 @@ export default [
     slug: "timbangan",
     thumbnail: thumbnailTimbangan,
     description: "Cubao palengke prices",
+  },
+  {
+    title: "Labada",
+    slug: "labada",
+    thumbnail: thumbnailLabada,
+    description: "Mandaluyong laundry rail",
   },
 ] as const satisfies ProjectPreview[];
