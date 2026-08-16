@@ -51,6 +51,7 @@ import thumbnailLaot from "../../../assets/thumbnails/laot.png";
 import thumbnailTimbangan from "../../../assets/thumbnails/timbangan.png";
 import thumbnailLabada from "../../../assets/thumbnails/labada.png";
 import thumbnailGalon from "../../../assets/thumbnails/galon.png";
+import thumbnailHataw from "../../../assets/thumbnails/hataw.png";
 
 import type { ProjectPreview } from "../../types";
 
@@ -372,5 +373,11 @@ export default [
     slug: "galon",
     thumbnail: thumbnailGalon,
     description: "Malabon night refill",
+  },
+  {
+    title: "Hataw",
+    slug: "hataw",
+    thumbnail: thumbnailHataw,
+    description: "Valenzuela night court",
   },
 ] as const satisfies ProjectPreview[];
