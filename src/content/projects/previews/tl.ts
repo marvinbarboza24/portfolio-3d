@@ -50,6 +50,7 @@ import thumbnailVideoke from "../../../assets/thumbnails/videoke.png";
 import thumbnailLaot from "../../../assets/thumbnails/laot.png";
 import thumbnailTimbangan from "../../../assets/thumbnails/timbangan.png";
 import thumbnailLabada from "../../../assets/thumbnails/labada.png";
+import thumbnailGalon from "../../../assets/thumbnails/galon.png";
 
 import type { ProjectPreview } from "../../types";
 
@@ -365,5 +366,11 @@ export default [
     slug: "labada",
     thumbnail: thumbnailLabada,
     description: "Labada sa Mandaluyong",
+  },
+  {
+    title: "Galon",
+    slug: "galon",
+    thumbnail: thumbnailGalon,
+    description: "Refill sa gabi sa Malabon",
   },
 ] as const satisfies ProjectPreview[];
