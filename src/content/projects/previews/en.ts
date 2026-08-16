@@ -47,6 +47,7 @@ import thumbnailSaloRsvp from "../../../assets/thumbnails/salo-rsvp.png";
 import thumbnailSakay from "../../../assets/thumbnails/sakay.png";
 import thumbnailGupit from "../../../assets/thumbnails/gupit.png";
 import thumbnailVideoke from "../../../assets/thumbnails/videoke.png";
+import thumbnailLaot from "../../../assets/thumbnails/laot.png";
 
 import type { ProjectPreview } from "../../types";
 
@@ -344,5 +345,11 @@ export default [
     slug: "videoke",
     thumbnail: thumbnailVideoke,
     description: "Restobar song queue",
+  },
+  {
+    title: "Laot",
+    slug: "laot",
+    thumbnail: thumbnailLaot,
+    description: "El Nido island hopping",
   },
 ] as const satisfies ProjectPreview[];
