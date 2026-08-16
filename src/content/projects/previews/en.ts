@@ -378,6 +378,6 @@ export default [
     title: "Hataw",
     slug: "hataw",
     thumbnail: thumbnailHataw,
-    description: "Valenzuela night court",
+    description: "Valenzuela covered court",
   },
 ] as const satisfies ProjectPreview[];
