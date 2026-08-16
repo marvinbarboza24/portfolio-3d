@@ -46,6 +46,7 @@ import thumbnailTimplaCafe from "../../../assets/thumbnails/timpla-cafe.png";
 import thumbnailSaloRsvp from "../../../assets/thumbnails/salo-rsvp.png";
 import thumbnailSakay from "../../../assets/thumbnails/sakay.png";
 import thumbnailGupit from "../../../assets/thumbnails/gupit.png";
+import thumbnailVideoke from "../../../assets/thumbnails/videoke.png";
 
 import type { ProjectPreview } from "../../types";
 
@@ -337,5 +338,11 @@ export default [
     slug: "gupit",
     thumbnail: thumbnailGupit,
     description: "Walk-in queue ng barberya",
+  },
+  {
+    title: "Videoke",
+    slug: "videoke",
+    thumbnail: thumbnailVideoke,
+    description: "Song queue ng restobar",
   },
 ] as const satisfies ProjectPreview[];
