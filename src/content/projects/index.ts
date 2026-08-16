@@ -1,7 +1,7 @@
 import type { Locale } from "../../i18n/types";
 import type { TagVariant } from "../../components/tagVariants";
 
-export type ProjectCategory = "ar" | "vr" | "lms" | "web" | "other";
+export type ProjectCategory = "ar" | "vr" | "lms" | "self-service" | "other";
 
 export const projectIds = [
   "ar-pc",
@@ -80,12 +80,12 @@ export const projectCategories: Record<(typeof projectIds)[number], ProjectCateg
   "cmu-portal": "lms",
   "cmu-lms": "lms",
   "diliman-lms": "lms",
-  "timpla-cafe": "web",
-  "salo-rsvp": "web",
-  sakay: "web",
-  gupit: "web",
+  "timpla-cafe": "self-service",
+  "salo-rsvp": "self-service",
+  sakay: "self-service",
+  gupit: "self-service",
   "last-light-kingdom": "other",
-  "project-post": "other",
+  "project-post": "self-service",
   "going-up": "other",
   "meca-chammelion": "other",
   "themepark-games": "other",
@@ -107,7 +107,7 @@ export const projectCategories: Record<(typeof projectIds)[number], ProjectCateg
 
 export const platformTags = ["web", "pc", "mobile"] as const satisfies TagVariant[];
 
-export const categoryOrder = ["vr", "lms", "web", "other", "ar"] as const satisfies ProjectCategory[];
+export const categoryOrder = ["vr", "lms", "self-service", "other", "ar"] as const satisfies ProjectCategory[];
 
 export function getDisplayTags(slug: string, tags: TagVariant[]): TagVariant[] {
   const category = projectCategories[slug as keyof typeof projectCategories];
