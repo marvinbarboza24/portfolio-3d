@@ -49,7 +49,7 @@ const copyrightLabel = `\u00A9 ${year} David Heckhoff`;
           <div v-if="legalVisible" class="footer-top-links-legal">
             <Clickable renderAs="div">
               <Link
-                href="/privacy.html"
+                href="https://david-hckh.com/privacy"
                 class="footer-link"
                 external
                 data-cursor="circle-white"
@@ -60,7 +60,7 @@ const copyrightLabel = `\u00A9 ${year} David Heckhoff`;
             </Clickable>
             <Clickable renderAs="div">
               <Link
-                href="/legal.html"
+                href="https://david-hckh.com/legal"
                 class="footer-link children-unclickable"
                 external
                 data-cursor="circle-white"
