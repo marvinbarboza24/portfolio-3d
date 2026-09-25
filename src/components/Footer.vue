@@ -24,7 +24,7 @@ const { withSocial = true } = defineProps<Props>();
 const visits = useVisitCount();
 const { legalVisible } = useLegalReveal();
 const year = new Date().getFullYear();
-const copyrightLabel = `\u00A9 ${year} Marvin`;
+const copyrightLabel = `\u00A9 ${year} David Heckhoff`;
 </script>
 
 <template>
