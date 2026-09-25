@@ -48,7 +48,7 @@ const year = new Date().getFullYear();
           <div v-if="legalVisible" class="footer-top-links-legal">
             <Clickable renderAs="div">
               <Link
-                href="/privacy"
+                href="/privacy.html"
                 class="footer-link"
                 external
                 data-cursor="circle-white"
@@ -59,7 +59,7 @@ const year = new Date().getFullYear();
             </Clickable>
             <Clickable renderAs="div">
               <Link
-                href="/legal"
+                href="/legal.html"
                 class="footer-link children-unclickable"
                 external
                 data-cursor="circle-white"
