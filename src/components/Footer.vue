@@ -1,5 +1,7 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 import Social from "./Social.vue";
+import Link from "./Link.vue";
+import Clickable from "./Clickable.vue";
 import LangSwitch from "./LangSwitch.vue";
 import NotchSection from "./NotchSection.vue";
 import { t } from "../i18n/utils/translate";
@@ -7,6 +9,7 @@ import ButtonRound from "./ButtonRound.vue";
 import { lenis } from "../composables/useScroll";
 import ArrowRightLong from "./icons/ArrowRightLong.vue";
 import { useVisitCount } from "../composables/useVisitCount";
+import { useLegalReveal } from "../composables/useLegalReveal";
 
 interface Props {
   withSocial?: boolean;
@@ -19,6 +22,8 @@ const handleBackToTop = () => {
 
 const { withSocial = true } = defineProps<Props>();
 const visits = useVisitCount();
+const { legalVisible } = useLegalReveal();
+const year = new Date().getFullYear();
 </script>
 
 <template>
@@ -40,10 +45,35 @@ const visits = useVisitCount();
       <div class="footer-top">
         <Social v-if="withSocial" />
         <div class="footer-top-links">
+          <div v-if="legalVisible" class="footer-top-links-legal">
+            <Clickable renderAs="div">
+              <Link
+                href="/privacy"
+                class="footer-link"
+                external
+                data-cursor="circle-white"
+                data-sound="click"
+                data-hoversound="hover"
+                >{{ t("privacy") }}</Link
+              >
+            </Clickable>
+            <Clickable renderAs="div">
+              <Link
+                href="/legal"
+                class="footer-link children-unclickable"
+                external
+                data-cursor="circle-white"
+                data-sound="click"
+                data-hoversound="hover"
+                >{{ t("legal") }}</Link
+              >
+            </Clickable>
+          </div>
           <LangSwitch />
         </div>
       </div>
       <div class="footer-credits">
+        <p v-if="legalVisible" class="footer-copyright">© {{ year }} Marvin</p>
         <p v-if="visits !== null" class="footer-visits">{{ t("visits", { count: visits.toLocaleString() }) }}</p>
       </div>
     </div>
@@ -103,6 +133,12 @@ const visits = useVisitCount();
       align-items: center;
       gap: var(--space-md);
 
+      &-legal {
+        display: flex;
+        flex-direction: row;
+        gap: var(--space-md);
+      }
+
       @include mixins.mq("md") {
         gap: var(--space-lg);
         flex-direction: row;
@@ -110,6 +146,10 @@ const visits = useVisitCount();
         margin-left: auto;
       }
     }
+  }
+
+  &-link {
+    font-weight: 700;
   }
 
   &-credits {
@@ -120,6 +160,10 @@ const visits = useVisitCount();
     width: 100%;
     font-size: var(--font-size-sm);
     text-align: center;
+  }
+
+  &-copyright {
+    font-weight: 700;
   }
 
   &-visits {
