@@ -24,6 +24,7 @@ const { withSocial = true } = defineProps<Props>();
 const visits = useVisitCount();
 const { legalVisible } = useLegalReveal();
 const year = new Date().getFullYear();
+const copyrightLabel = `\u00A9 ${year} Marvin`;
 </script>
 
 <template>
@@ -73,7 +74,7 @@ const year = new Date().getFullYear();
         </div>
       </div>
       <div class="footer-credits">
-        <p v-if="legalVisible" class="footer-copyright">© {{ year }} Marvin</p>
+        <p v-if="legalVisible" class="footer-copyright">{{ copyrightLabel }}</p>
         <p v-if="visits !== null" class="footer-visits">{{ t("visits", { count: visits.toLocaleString() }) }}</p>
       </div>
     </div>
